@@ -1,0 +1,9 @@
+namespace: whoami
+
+helm:
+  releaseName: whoami
+  chart: ""
+  repo: ""
+  version: ""
+  force: false
+  timeoutSeconds: 0
