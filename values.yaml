@@ -1,4 +1,4 @@
-name: whoami 5
+name: whoami 6
 replicas: 3
 maxSurge: 1
 maxUnavailable: 1
