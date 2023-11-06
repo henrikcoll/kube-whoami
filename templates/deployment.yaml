@@ -6,12 +6,16 @@ metadata:
     app: whoami
   name: whoami
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: { { .Values.replicas } }
   selector:
     matchLabels:
       app: whoami
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: { { .Values.maxSurge } }
+      maxUnavailable: { { .Values.maxUnavailable } }
+
   template:
     metadata:
       labels:
@@ -26,7 +30,7 @@ spec:
               name: http
           env:
             - name: WHOAMI_NAME
-              value: {{ .Values.name }}
+              value: { { .Values.name } }
           livenessProbe:
             initialDelaySeconds: 5
             periodSeconds: 10
@@ -39,8 +43,3 @@ spec:
             httpGet:
               path: /health
               port: http
-      strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxSurge: {{ .Values.maxSurge }}
-          maxUnavailable: {{ .Values.maxUnavailable }}
