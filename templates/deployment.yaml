@@ -31,15 +31,9 @@ spec:
           env:
             - name: WHOAMI_NAME
               value: {{ .Values.name }}
-          livenessProbe:
-            initialDelaySeconds: 5
-            periodSeconds: 10
-            httpGet:
-              path: /health
-              port: http
           readinessProbe:
-            initialDelaySeconds: 5
-            periodSeconds: 10
+            initialDelaySeconds: 30
+            periodSeconds: 20
             httpGet:
               path: /health
               port: http
