@@ -1,2 +1,4 @@
 name: whoami 4
-replicas: 2
+replicas: 3
+maxSurge: 1
+maxUnavailable: 1
