@@ -2,3 +2,4 @@ name: whoami 7
 replicas: 3
 maxSurge: 1
 maxUnavailable: 1
+host: whoami.henrik.ovh

@@ -4,10 +4,11 @@ kind: Ingress
 metadata:
   annotations:
     traefik.ingress.kubernetes.io/redirect-entry-point: https
+    cert-manager.io/cluster-issuer: letsencrypt-staging
   name: whoami
 spec:
   rules:
-    - host: whoami.heka.no
+    - host: {{ .Values.host }}
       http:
         paths:
           - path: /
@@ -17,3 +18,7 @@ spec:
                 name: whoami
                 port:
                   number: 80
+  tls:
+  - hosts:
+    - {{ .Values.host }}
+    secretName: whoami-cert
