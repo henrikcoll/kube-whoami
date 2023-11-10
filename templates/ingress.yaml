@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   annotations:
     traefik.ingress.kubernetes.io/redirect-entry-point: https
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   name: whoami
 spec:
   rules:
