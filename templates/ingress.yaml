@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    traefik.ingress.kubernetes.io/redirect-entry-point: websecure
     cert-manager.io/cluster-issuer: letsencrypt-prod
   name: whoami
 spec:
